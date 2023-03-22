@@ -1,4 +1,4 @@
-# Digikala-(Nowruz-project)
+# Digikala-(NowruzProject)
 
 Advanced Programming - Spring 2023
 

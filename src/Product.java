@@ -1,19 +1,21 @@
 import java.util.*;
 
 public class Product {
-
     private String name;
     private int price;
     private int quantity;
-    private List<String> comments;
+    private int cartNumber;
     private String additionalData;
+    private SELLER seller;
 
-    public Product(String name, int price, int quantity, String additionalData) {
+
+    public Product(String name, int price, int quantity,int cartNumber, String additionalData, SELLER seller) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
-        comments = new ArrayList<>();
+        this.cartNumber = cartNumber;
         this.additionalData = additionalData;
+        this.seller = seller;
     }
 
     public void setName(String name) {
@@ -28,12 +30,16 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public void setComments(List<String> comments) {
-        this.comments = comments;
+    public void setCartNumber(int cartNumber) {
+        this.cartNumber = cartNumber;
     }
 
     public void setAdditionalData(String additionalData) {
         this.additionalData = additionalData;
+    }
+
+    public void setSeller(SELLER seller) {
+        this.seller = seller;
     }
 
     public String getName() {
@@ -48,11 +54,15 @@ public class Product {
         return quantity;
     }
 
-    public List<String> getComments() {
-        return comments;
+    public int getCartNumber() {
+        return cartNumber;
     }
 
     public String getAdditionalData() {
         return additionalData;
+    }
+
+    public SELLER getSeller() {
+        return seller;
     }
 }

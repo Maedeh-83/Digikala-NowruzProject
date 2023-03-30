@@ -80,5 +80,28 @@ public class USER {
     }
 
 
+   /* public static void showProfile() {
+        for (USER mainUser : Service.getUsersList()){
+            if (mainUser.getUsername().equals(mainUsername) && mainUser.getPassword().equals(mainPassword)){
+                System.out.println("Username: " + mainUsername);
+                System.out.println("Password: " + mainPassword);
+                System.out.println("Email: " + mainUser.getEmail());
+                System.out.println("Phone number: " + mainUser.getPhoneNumber());
+                System.out.println("Address: " + mainUser.getAddress());
+            }
+        }
+    }
+
+    public static void showWallet() {
+        for (USER mainUser : Service.getUsersList()) {
+            if (mainUser.getUsername().equals(mainUsername) && mainUser.getPassword().equals(mainPassword)) {
+                System.out.println("Your fund: " + mainUser.getWallet());
+            }
+        }
+    } */
+
+
+
+
 
 }

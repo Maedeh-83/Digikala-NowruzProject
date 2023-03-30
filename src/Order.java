@@ -1,13 +1,11 @@
 import java.util.*;
 
 public class Order {
-
     private static String date;
     private static List<Product> products;
     private static int totalPrice;
     private static USER buyer;
     private static List<SELLER> sellers;
-
 
     public Order(String date ,int totalPrice, USER buyer, List<SELLER> sellers,  List<Product> products) {
         this.date = date;

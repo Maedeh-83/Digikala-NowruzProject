@@ -5,7 +5,7 @@ public class SELLER {
     private String password;
     private static List<Product> availableProducts;
     private double wallet = 0.0 ;
-    private static boolean authorization = false ;
+    static boolean authorization = false ;
 
     public SELLER(String companyName, String password, double wallet) {
         this.companyName = companyName;
@@ -74,7 +74,7 @@ public class SELLER {
                     }
                     if (answer == 2) {
                         SELLER.authorization = false;
-                        System.out.println("Permission not granted!");
+                        System.out.println("Permission was not granted!");
                         Service.logout();
                     }
                 } else {

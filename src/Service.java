@@ -1,9 +1,16 @@
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.*;
+import java.io.FileOutputStream;
+import java.io.IOError;
+import java.util.Properties;
 
 public class Service {
     private static List<USER> usersList = new ArrayList<>();
     static List<ADMIN> adminsList = new ArrayList<>();
+    static List<SELLER> sellersList = new ArrayList<>();
     private static List<Product> productsList;
+    static List<Category> categoryList = new ArrayList<>();
     private static List<Product> cart;
     private static List<Order> ordersList;
     private static Double totalProfit = 0.0;
@@ -12,13 +19,22 @@ public class Service {
     public Service() {
         this.cart = new ArrayList<>();
         this.usersList = new ArrayList<>();
+        this.adminsList = new ArrayList<>();
+        this.sellersList = new ArrayList<>();
         this.productsList = new ArrayList<>();
         this.ordersList = new ArrayList<>();
         this.totalProfit = totalProfit;
+        this.categoryList = new ArrayList<>();
     }
 
-    public List<USER> getUsersList() {
+    public static List<USER> getUsersList() {
         return usersList;
+    }
+    public List<ADMIN> getAdminsList() {
+        return adminsList;
+    }
+    public List<SELLER> getSellersList() {
+        return sellersList;
     }
 
     public List<Product> getProductsList() {
@@ -111,28 +127,33 @@ public class Service {
         USER newAccount = new USER(username, password, email, phoneNumber, address, 0.0);
         usersList.add(newAccount);
         System.out.println("your account created succefully!");
+        Main.userPanel();
     }
 
-    public void userLogin() {
-        String username;
-        String password;
+    public static void userLogin() {
+        Scanner input = new Scanner(System.in);
+        String mainUsername;
+        String mainPassword;
         System.out.println("<User Login>");
         System.out.println(" ");
         System.out.println("Enter your username:");
-        username = input.nextLine();
+        mainUsername = input.nextLine();
         System.out.println("Enter your password:");
-        password = input.nextLine();
-        for (USER user : usersList) {
-            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+        mainPassword = input.nextLine();
+        for (USER mainUser : usersList) {
+            if (mainUser.getUsername().equals(mainUsername) && mainUser.getPassword().equals(mainPassword)) {
                 System.out.println("you logged in (:");
-            } else {
+                Main.userPanel();
+            }
+            else {
                 System.out.println("user not found!");
+                Main.START();
             }
         }
     }
 
-    public void adminLogin() {
-
+    public static void adminLogin() {
+        Scanner input = new Scanner(System.in);
         String username;
         String password;
         System.out.println("<Admin Login>");
@@ -144,14 +165,40 @@ public class Service {
         for (ADMIN admin : adminsList) {
             if (admin.getUsername().equals(username) && admin.getPassword().equals(password)) {
                 System.out.println("you logged in (:");
-            } else {
+                Main.adminPanel();
+            }
+            else {
                 System.out.println("admin not found!");
+                Main.START();
+            }
+        }
+    }
+
+    public static void sellerLogin() {
+        Scanner input = new Scanner(System.in);
+        String companyName;
+        String password;
+        System.out.println("Enter your company Name:");
+        companyName = input.nextLine();
+        System.out.println("Enter your password:");
+        password = input.next();
+        for (SELLER seller : sellersList) {
+            if (seller.getCompanyName().equals(companyName) && seller.getPassword().equals(password)) {
+                if(seller.authorization == true){
+                    Main.sellerPanel();
+                }
+                if(seller.authorization == false){
+                    System.out.println("Permission was not granted!");
+                    Main.START();
+                }
+            }
+            else {
+                System.out.println("seller not found!");
             }
         }
     }
 
     public static void editPersonalInformation() {
-
         Scanner input = new Scanner(System.in);
         System.out.println("first, enter your current username and password...");
         System.out.println("current username:");
@@ -365,6 +412,19 @@ public class Service {
             }
         }
     }
+
+    public static void addCategory(Category category){
+        categoryList.add(category);
+    }
+    public static void addUser(USER user){
+        usersList.add(user);
+    }
+    public static void addAdmin(ADMIN admin){
+        adminsList.add(admin);
+    }
+
+
+
 }
 
 

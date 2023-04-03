@@ -8,14 +8,35 @@ public class Product {
     private String additionalData;
     private SELLER seller;
 
+    private int ID;
 
-    public Product(String name, int price, int quantity,int cartNumber, String additionalData, SELLER seller) {
+
+    public Product(int ID,String name, int price, int quantity, String additionalData, SELLER seller) {
+        this.ID = ID;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.cartNumber = cartNumber;
         this.additionalData = additionalData;
-        this.seller = seller;
+        seller = seller;
+        //this.seller = seller;
+       // this.seller.setCompanyName(seller);
+    }
+
+    public Product(int ID, String name, int price, int quantity, String additionalData, String seller) {
+        this.ID = ID;
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.cartNumber = cartNumber;
+        this.additionalData = additionalData;
+        seller = seller;
+        /*this.seller.setCompanyName(seller);
+        for(SELLER seller1 : Service.sellersList) {
+            if(seller1.getCompanyName().equals(seller)) {
+                this.seller = seller1;
+            }
+        }*/
     }
 
     public void setName(String name) {
@@ -36,10 +57,6 @@ public class Product {
 
     public void setAdditionalData(String additionalData) {
         this.additionalData = additionalData;
-    }
-
-    public void setSeller(SELLER seller) {
-        this.seller = seller;
     }
 
     public String getName() {
@@ -64,5 +81,9 @@ public class Product {
 
     public SELLER getSeller() {
         return seller;
+    }
+
+    public int getID() {
+        return ID;
     }
 }

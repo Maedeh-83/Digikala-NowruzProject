@@ -7,6 +7,10 @@ public class SELLER {
     private double wallet = 0.0 ;
     static boolean authorization = false ;
 
+    public SELLER(String companyName) {
+        this.companyName = companyName;
+    }
+
     public SELLER(String companyName, String password, double wallet) {
         this.companyName = companyName;
         this.password = password;

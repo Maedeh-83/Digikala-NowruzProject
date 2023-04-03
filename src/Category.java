@@ -31,4 +31,13 @@ public class Category {
     public void addSubCategories(Category sub){
         this.subCategories.add(sub);
     }
+
+    public void addProduct(Product product){
+        products.add(product);
+    }
+
+
+
+
+
 }

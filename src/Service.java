@@ -9,11 +9,11 @@ public class Service {
     private static List<USER> usersList = new ArrayList<>();
     static List<ADMIN> adminsList = new ArrayList<>();
     static List<SELLER> sellersList = new ArrayList<>();
-    private static List<Product> productsList;
+    private static List<Product> productsList = new ArrayList<>();
     static List<Category> categoryList = new ArrayList<>();
-    private static List<Product> cart;
-    private static List<Order> ordersList;
-    private static Double totalProfit = 0.0;
+    private static List<Product> cart = new ArrayList<>();
+    private static List<Order> ordersList = new ArrayList<>();
+    static Double totalProfit = 0.0;
     Scanner input = new Scanner(System.in);
 
     public Service() {
@@ -25,6 +25,7 @@ public class Service {
         this.ordersList = new ArrayList<>();
         this.totalProfit = totalProfit;
         this.categoryList = new ArrayList<>();
+
     }
 
     public static List<USER> getUsersList() {
@@ -49,6 +50,10 @@ public class Service {
         return totalProfit;
     }
 
+    public static List<Product> getCart() {
+        return cart;
+    }
+
     public static void viewUsers() {
         for (USER user : usersList) {
             for (int i = 1; i <= usersList.size(); i++) {
@@ -58,15 +63,25 @@ public class Service {
                 System.out.println(user.getEmail());
                 System.out.println(user.getAddress());
                 System.out.println(user.getPhoneNumber());
+                System.out.println(".....................................");
             }
         }
     }
 
     public static void viewDetailsOfProduct(Product product) {
-        System.out.println(product.getName());
+
+        System.out.println("--" + product.getID() + "--" + product.getName());
         System.out.println("price: " + product.getPrice());
         System.out.println("data: " + product.getAdditionalData());
         System.out.println("quantity: " + product.getQuantity());
+        System.out.println("..............................................");
+    }
+    public static void viewDetailsOfProduct_forAdmins(Product product) {
+        System.out.println("name: " + product.getName());
+        System.out.println("price: " + product.getPrice());
+        System.out.println("data: " + product.getAdditionalData());
+        System.out.println("quantity: " + product.getQuantity());
+        System.out.println("..............................................");
     }
 
     public static void viewCart() {
@@ -86,7 +101,7 @@ public class Service {
             System.out.println(" - total price: " + order.getTotalPrice());
             Order.getBuyer();
             Order.getSellers();
-            System.out.println(" ");
+            System.out.println("................................................");
         }
     }
 
@@ -104,6 +119,11 @@ public class Service {
         }
     }
 
+    public static String uuid() {
+        UUID id = UUID.randomUUID();
+        String password = id.toString().substring(0,5);
+        return password;
+    }
     public static void creatUserAccount() {
         Scanner input = new Scanner(System.in);
         String username;
@@ -115,8 +135,10 @@ public class Service {
         System.out.println(" ");
         System.out.println("Enter an username:");
         username = input.nextLine();
-        System.out.println("Enter a password:");
-        password = input.nextLine();
+        password = uuid();
+        System.out.println("your password is : " + password);
+        //System.out.println("Enter a password:");
+        //password = input.nextLine();
         System.out.println("Enter your email:");
         email = input.nextLine();
         System.out.println("Enter your address:");
@@ -124,7 +146,7 @@ public class Service {
         System.out.println("Enter your phone number:");
         phoneNumber = input.nextInt();
 
-        USER newAccount = new USER(username, password, email, phoneNumber, address, 0.0);
+        USER newAccount = new USER(username, password, email, phoneNumber, address, 0);
         usersList.add(newAccount);
         System.out.println("your account created succefully!");
         Main.userPanel();
@@ -214,7 +236,6 @@ public class Service {
         System.out.println("5-address");
         int answer = input.nextInt();
 
-
         switch (answer) {
             case 1:
                 System.out.println("Enter your new username:");
@@ -222,6 +243,8 @@ public class Service {
                 for (USER user : usersList) {
                     if (user.getUsername().equals(currentUsername)) {
                         user.setUsername(newUsername);
+                        System.out.println("Username has been successfully updated..");
+                        Main.userPanel();
                     }
                 }
                 break;
@@ -232,6 +255,8 @@ public class Service {
                 for (USER user : usersList) {
                     if (user.getPassword().equals(currentPassword)) {
                         user.setUsername(newPassword);
+                        System.out.println("Password has been successfully updated..");
+                        Main.userPanel();
                     }
                 }
                 break;
@@ -243,16 +268,20 @@ public class Service {
                 for (USER user : usersList) {
                     if (user.getUsername().equals(currentUsername) && user.getPassword().equals(currentPassword)) {
                         user.setEmail(newEmail);
+                        System.out.println("Email has been successfully updated..");
+                        Main.userPanel();
                     }
                 }
                 break;
 
             case 4:
                 System.out.println("Enter your new phone number:");
-                int newPhoneNumber = input.nextInt();
+                long newPhoneNumber = input.nextLong();
                 for (USER user : usersList) {
                     if (user.getUsername().equals(currentUsername) && user.getPassword().equals(currentPassword)) {
                         user.setPhoneNumber(newPhoneNumber);
+                        System.out.println("PhoneNumber has been successfully updated..");
+                        Main.userPanel();
                     }
                 }
                 break;
@@ -265,6 +294,8 @@ public class Service {
                 for (USER user : usersList) {
                     if (user.getUsername().equals(currentUsername) && user.getPassword().equals(currentPassword)) {
                         user.setAddress(newAddress);
+                        System.out.println("Address has been successfully updated..");
+                        Main.userPanel();
                     }
                 }
                 break;
@@ -319,7 +350,7 @@ public class Service {
         USER buyer = null;
         for (USER user : usersList) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                buyer = new USER(username, password, user.getEmail(), user.getPhoneNumber(), user.getAddress(), user.getWallet());
+                buyer = new USER(username, password, user.getEmail(), user.getPhoneNumber(), user.getAddress(), (long) user.getWallet());
             }
         }
         ArrayList<SELLER> sellerss = new ArrayList<>();
@@ -347,13 +378,19 @@ public class Service {
                 product.setQuantity(newQuantity);
             }
             // 3-کم شدن پول از کیف پول کاربر و افزوده شدن به کیف پول فروشنده و سود دیجی کالا
-            double newWallet = buyer.getWallet() - totalPrice;
+            long newWallet = (long) (buyer.getWallet() - totalPrice);
             buyer.setWallet(newWallet);
 
             totalProfit = totalProfit + (0.1 * totalPrice);
 
             for (Product product : cart) {
-                product.getSeller().setWallet(0.9 * product.getPrice());
+                for(SELLER seller : sellersList) {
+                    if(seller.getCompanyName().equals(product.getSeller().getCompanyName())) {
+                        seller.setWallet(0.9 * product.getPrice());
+
+                       // product.getSeller().setWallet(0.9 * product.getPrice());
+                    }
+                }
             }
 
             System.out.println("The order was successfully placed (: ");
@@ -378,9 +415,9 @@ public class Service {
         System.out.println(" ");
         System.out.println("<Admin Login>");
         System.out.println("Enter your username:");
-        String username2 = input.nextLine();
+        String username2 = input.next();
         System.out.println("Enter your password:");
-        String password2 = input.nextLine();
+        String password2 = input.next();
         for (ADMIN admin : Service.adminsList) {
             if (admin.getUsername().equals(username2) && admin.getPassword().equals(password2)) {
                 System.out.println("you logged in (:");
@@ -390,7 +427,7 @@ public class Service {
                 if(answer==1){
                     for(USER user : usersList){
                         if(user.getUsername().equals(username1) && user.getPassword().equals(password1)) {
-                            double newWallet = user.getWallet() + fund ;
+                            long newWallet = (long) (user.getWallet() + fund);
                             user.setWallet(newWallet);
                             System.out.println("The request was approved");
                             Main.userPanel();
@@ -421,6 +458,9 @@ public class Service {
     }
     public static void addAdmin(ADMIN admin){
         adminsList.add(admin);
+    }
+    public static void addToProductsList(Product product){
+        productsList.add(product);
     }
 
 

@@ -27,9 +27,7 @@ public class Order {
         Order.buyer = buyer;
     }
 
-    public static void setSellers(List<SELLER> sellers) {
-        Order.sellers = sellers;
-    }
+    //public static void setSellers(List<String> sellers) { Order.sellers = sellers; }
 
     public static void setProducts(List<Product> products) { Order.products = products; }
 
@@ -47,9 +45,10 @@ public class Order {
 
     public static void getSellers() {
         for(SELLER seller : sellers){
-            System.out.println(" - sellers: " + seller.getCompanyName()+ ", ");
+            System.out.println(" - sellers: " + seller + ", ");
         }
     }
+
 
     public static void getProducts() {
         for(Product product : products){

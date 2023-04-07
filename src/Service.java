@@ -31,7 +31,7 @@ public class Service {
     public static List<USER> getUsersList() {
         return usersList;
     }
-    public List<ADMIN> getAdminsList() {
+    public static List<ADMIN> getAdminsList() {
         return adminsList;
     }
     public List<SELLER> getSellersList() {
@@ -261,8 +261,7 @@ public class Service {
                 }
                 break;
 
-
-            case 3:
+            case 3 :
                 System.out.println("Enter your new email:");
                 String newEmail = input.next();
                 for (USER user : usersList) {
@@ -318,8 +317,8 @@ public class Service {
 
         ADMIN newAdmin = new ADMIN(username, password, email);
         adminsList.add(newAdmin);
+        Service.addAdmin(newAdmin);
         System.out.println("a new admin account created succefully!");
-
     }
 
     public static ArrayList<Product> search(String title) {
@@ -327,6 +326,15 @@ public class Service {
         for (Product product : productsList) {
             if (product.getName().contains(title)) {
                 found.add(product);
+            }
+        }
+        return found;
+    }
+    public static ArrayList<USER> searchUser(String username) {
+        ArrayList<USER> found = new ArrayList<>();
+        for (USER user : usersList) {
+            if (user.getUsername().contains(username)) {
+                found.add(user);
             }
         }
         return found;

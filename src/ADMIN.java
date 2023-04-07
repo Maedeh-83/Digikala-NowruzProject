@@ -35,5 +35,15 @@ public class ADMIN {
     public String getEmail() {
         return email;
     }
+
+    public static void showProfile(String password) {
+        for (ADMIN admin : Service.getAdminsList()) {
+            if (admin.getPassword().equals(password)) {
+                System.out.println("Username: " + admin.getUsername());
+                System.out.println("Password: " + password);
+                System.out.println("Email: " + admin.getEmail());
+            }
+        }
+    }
 }
 

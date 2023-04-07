@@ -76,7 +76,7 @@ public class Main {
 
         switch (option) {
 
-            case 1 :
+            case 1 :   //prifile
                 System.out.println("Enter your password:");
                 String password = input.next();
                 USER.showProfile(password);
@@ -137,9 +137,13 @@ public class Main {
                             System.out.println("Enter the product number that you want to add to your shopping cart :");
                             int num = input.nextInt();
                             if(num == 1) {
+                                System.out.println("How many of this product do you want to add to the shopping cart?");
+                                int cartNum = input.nextInt();
                                 for (Product product : womenCloths.getProducts()) {
-                                    if(product.getID() == 1)
-                                     Service.addToCart(product);
+                                    if(product.getID() == 1) {
+                                        Service.addToCart(product);
+                                        product.setCartNumber(cartNum);
+                                    }
                                 }
                                 System.out.println("The product has been added to the shopping cart (:");
                                 System.out.println("-----------------------------------------");
@@ -153,9 +157,13 @@ public class Main {
 
                             }
                             if(num == 2) {
+                                System.out.println("How many of this product do you want to add to the shopping cart?");
+                                int cartNum = input.nextInt();
                                 for (Product product : womenCloths.getProducts()) {
-                                    if(product.getID() == 2)
+                                    if(product.getID() == 2) {
                                         Service.addToCart(product);
+                                        product.setCartNumber(cartNum);
+                                    }
                                 }
                                 System.out.println("The product has been added to the shopping cart (:");
                                 System.out.println("-----------------------------------------");
@@ -168,9 +176,13 @@ public class Main {
                                 if(anss == 2){ userPanel(); }
                             }
                             if(num == 3) {
+                                System.out.println("How many of this product do you want to add to the shopping cart?");
+                                int cartNum = input.nextInt();
                                 for (Product product : womenCloths.getProducts()) {
-                                    if(product.getID() == 3)
+                                    if(product.getID() == 3) {
                                         Service.addToCart(product);
+                                        product.setCartNumber(cartNum);
+                                    }
                                 }
                                 System.out.println("The product has been added to the shopping cart (:");
                                 System.out.println("-----------------------------------------");
@@ -197,9 +209,13 @@ public class Main {
                                 System.out.println("Enter the product number that you want to add to your shopping cart :");
                                 int num = input.nextInt();
                                 if(num == 1) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : menCloths.getProducts()) {
-                                        if(product.getID() == 1)
+                                        if(product.getID() == 1) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -213,9 +229,13 @@ public class Main {
 
                                 }
                                 if(num == 2) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : menCloths.getProducts()) {
-                                        if(product.getID() == 2)
+                                        if(product.getID() == 2) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -239,9 +259,13 @@ public class Main {
                             System.out.println("1-YES  2-BACK");
                             int choise = input.nextInt();
                             if(choise == 1){
-                                    for (Product product : kidCloths.getProducts()) {
-                                        if(product.getID() == 1)
-                                            Service.addToCart(product);
+                                System.out.println("How many of this product do you want to add to the shopping cart?");
+                                int cartNum = input.nextInt();
+                                for (Product product : kidCloths.getProducts()) {
+                                    if(product.getID() == 1) {
+                                        Service.addToCart(product);
+                                        product.setCartNumber(cartNum);
+                                    }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -252,8 +276,6 @@ public class Main {
                                         userPanel();
                                     }
                                     if(anss == 2){ userPanel(); }
-
-
                             }
                             if(choise == 2){ userPanel(); }
                         }
@@ -277,9 +299,13 @@ public class Main {
                                 System.out.println("Enter the product number that you want to add to your shopping cart :");
                                 int num = input.nextInt();
                                 if(num == 1) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : makeUp.getProducts()) {
-                                        if(product.getID() == 1)
+                                        if(product.getID() == 1) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -290,12 +316,15 @@ public class Main {
                                         userPanel();
                                     }
                                     if(anss == 2){ userPanel(); }
-
                                 }
                                 if(num == 2) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : makeUp.getProducts()) {
-                                        if(product.getID() == 2)
+                                        if(product.getID() == 2) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -322,9 +351,13 @@ public class Main {
                                 System.out.println("Enter the product number that you want to add to your shopping cart :");
                                 int num = input.nextInt();
                                 if(num == 1) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : skinCare.getProducts()) {
-                                        if(product.getID() == 1)
+                                        if(product.getID() == 1) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -338,9 +371,13 @@ public class Main {
 
                                 }
                                 if(num == 2) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : skinCare.getProducts()) {
-                                        if(product.getID() == 2)
+                                        if(product.getID() == 2) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -366,9 +403,13 @@ public class Main {
                                 System.out.println("Enter the product number that you want to add to your shopping cart :");
                                 int num = input.nextInt();
                                 if(num == 1) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : hairCare.getProducts()) {
-                                        if(product.getID() == 1)
+                                        if(product.getID() == 1) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -379,12 +420,15 @@ public class Main {
                                         userPanel();
                                     }
                                     if(anss == 2){ userPanel(); }
-
                                 }
                                 if(num == 2) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : hairCare.getProducts()) {
-                                        if(product.getID() == 2)
+                                        if(product.getID() == 2) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -420,9 +464,13 @@ public class Main {
                                 System.out.println("Enter the product number that you want to add to your shopping cart :");
                                 int num = input.nextInt();
                                 if(num == 1) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : cellPhones.getProducts()) {
-                                        if(product.getID() == 1)
+                                        if(product.getID() == 1) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -435,21 +483,32 @@ public class Main {
                                     if(anss == 2){ userPanel(); }
                                 }
                                 if(num == 2) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : cellPhones.getProducts()) {
-                                        if(product.getID() == 2)
+                                        if(product.getID() == 2) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
                                     System.out.println("1-view cart    2-BACK");
                                     int anss = input.nextInt();
-                                    if(anss == 1){ Service.viewCart(); }
+                                    if(anss == 1){
+                                        Service.viewCart();
+                                        userPanel();
+                                    }
                                     if(anss == 2){ userPanel(); }
                                 }
                                 if(num == 3) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : cellPhones.getProducts()) {
-                                        if(product.getID() == 3)
+                                        if(product.getID() == 3) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -462,9 +521,13 @@ public class Main {
                                     if(anss == 2){ userPanel(); }
                                 }
                                 if(num == 4) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : cellPhones.getProducts()) {
-                                        if(product.getID() == 4)
+                                        if(product.getID() == 4) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -490,21 +553,32 @@ public class Main {
                                 System.out.println("Enter the product number that you want to add to your shopping cart :");
                                 int num = input.nextInt();
                                 if(num == 1) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : laptops.getProducts()) {
-                                        if(product.getID() == 1)
+                                        if(product.getID() == 1) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
                                     System.out.println("1-view cart    2-BACK");
                                     int anss = input.nextInt();
-                                    if(anss == 1){ Service.viewCart(); }
+                                    if(anss == 1){
+                                        Service.viewCart();
+                                        userPanel();
+                                    }
                                     if(anss == 2){ userPanel(); }
                                 }
                                 if(num == 2) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : laptops.getProducts()) {
-                                        if(product.getID() == 2)
+                                        if(product.getID() == 2) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -517,9 +591,13 @@ public class Main {
                                     if(anss == 2){ userPanel(); }
                                 }
                                 if(num == 3) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : laptops.getProducts()) {
-                                        if(product.getID() == 3)
+                                        if(product.getID() == 3) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -545,9 +623,13 @@ public class Main {
                                 System.out.println("Enter the product number that you want to add to your shopping cart :");
                                 int num = input.nextInt();
                                 if(num == 1) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : smartWatches.getProducts()) {
-                                        if(product.getID() == 1)
+                                        if(product.getID() == 1) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -560,15 +642,22 @@ public class Main {
                                     if(anss == 2){ userPanel(); }
                                 }
                                 if(num == 2) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : smartWatches.getProducts()) {
-                                        if(product.getID() == 2)
+                                        if(product.getID() == 2) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
                                     System.out.println("1-view cart    2-BACK");
                                     int anss = input.nextInt();
-                                    if(anss == 1){ Service.viewCart(); }
+                                    if(anss == 1){
+                                        Service.viewCart();
+                                        userPanel();
+                                    }
                                     if(anss == 2){ userPanel(); }
                                 }
                             }
@@ -585,9 +674,13 @@ public class Main {
                                 System.out.println("Enter the product number that you want to add to your shopping cart :");
                                 int num = input.nextInt();
                                 if(num == 1) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : headphones.getProducts()) {
-                                        if(product.getID() == 1)
+                                        if(product.getID() == 1) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -600,9 +693,13 @@ public class Main {
                                     if(anss == 2){ userPanel(); }
                                 }
                                 if(num == 2) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : headphones.getProducts()) {
-                                        if(product.getID() == 2)
+                                        if(product.getID() == 2) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -615,9 +712,13 @@ public class Main {
                                     if(anss == 2){ userPanel(); }
                                 }
                                 if(num == 3) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : headphones.getProducts()) {
-                                        if(product.getID() == 3)
+                                        if(product.getID() == 3) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -652,9 +753,13 @@ public class Main {
                                 System.out.println("Enter the product number that you want to add to your shopping cart :");
                                 int num = input.nextInt();
                                 if(num == 1) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : electricHouseholdAppliances.getProducts()) {
-                                        if(product.getID() == 1)
+                                        if(product.getID() == 1) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -667,9 +772,13 @@ public class Main {
                                     if(anss == 2){ userPanel(); }
                                 }
                                 if(num == 2) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : electricHouseholdAppliances.getProducts()) {
-                                        if(product.getID() == 2)
+                                        if(product.getID() == 2) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -695,9 +804,13 @@ public class Main {
                                 System.out.println("Enter the product number that you want to add to your shopping cart :");
                                 int num = input.nextInt();
                                 if(num == 1) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : kitchenUtensils.getProducts()) {
-                                        if(product.getID() == 1)
+                                        if(product.getID() == 1) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -710,9 +823,13 @@ public class Main {
                                     if(anss == 2){ userPanel(); }
                                 }
                                 if(num == 2) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : kitchenUtensils.getProducts()) {
-                                        if(product.getID() == 2)
+                                        if(product.getID() == 2) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -738,9 +855,13 @@ public class Main {
                                 System.out.println("Enter the product number that you want to add to your shopping cart :");
                                 int num = input.nextInt();
                                 if(num == 1) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : bedding.getProducts()) {
-                                        if(product.getID() == 1)
+                                        if(product.getID() == 1) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -753,9 +874,13 @@ public class Main {
                                     if(anss == 2){ userPanel(); }
                                 }
                                 if(num == 2) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : bedding.getProducts()) {
-                                        if(product.getID() == 2)
+                                        if(product.getID() == 2) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -791,9 +916,13 @@ public class Main {
                                 System.out.println("Enter the product number that you want to add to your shopping cart :");
                                 int num = input.nextInt();
                                 if(num == 1) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : book.getProducts()) {
-                                        if(product.getID() == 1)
+                                        if(product.getID() == 1) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -806,9 +935,13 @@ public class Main {
                                     if(anss == 2){ userPanel(); }
                                 }
                                 if(num == 2) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : book.getProducts()) {
-                                        if(product.getID() == 2)
+                                        if(product.getID() == 2) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -821,9 +954,13 @@ public class Main {
                                     if(anss == 2){ userPanel(); }
                                 }
                                 if(num == 3) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : book.getProducts()) {
-                                        if(product.getID() == 3)
+                                        if(product.getID() == 3) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -855,9 +992,13 @@ public class Main {
                                 System.out.println("Enter the product number that you want to add to your shopping cart :");
                                 int num = input.nextInt();
                                 if(num == 1) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : backpack.getProducts()) {
-                                        if(product.getID() == 1)
+                                        if(product.getID() == 1) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -871,9 +1012,13 @@ public class Main {
 
                                 }
                                 if(num == 2) {
+                                    System.out.println("How many of this product do you want to add to the shopping cart?");
+                                    int cartNum = input.nextInt();
                                     for (Product product : backpack.getProducts()) {
-                                        if(product.getID() == 2)
+                                        if(product.getID() == 2) {
                                             Service.addToCart(product);
+                                            product.setCartNumber(cartNum);
+                                        }
                                     }
                                     System.out.println("The product has been added to the shopping cart (:");
                                     System.out.println("-----------------------------------------");
@@ -881,7 +1026,7 @@ public class Main {
                                     int anss = input.nextInt();
                                     if(anss == 1){
                                         Service.viewCart();
-                                    userPanel();
+                                        userPanel();
                                     }
                                     if(anss == 2){ userPanel(); }
                                 }
@@ -978,11 +1123,23 @@ public class Main {
 
         switch (option) {
 
-            case 1 :
+            case 1 :    //profile
+                System.out.println("Enter your password:");
+                String password = input.next();
+                ADMIN.showProfile(password);
+                System.out.println("..............................");
+                System.out.println("1-BACK");
+                int ans = input.nextInt();
+                if(ans == 1){
+                    System.out.println("..............................");
+                    adminPanel();
+                }
                 break;
 
             case 2 :
                 System.out.println("TotalProfit:  " + Service.totalProfit);
+                System.out.println("----------------------------------");
+                adminPanel();
                 break;
 
             case 3 :  //Add a new admin
@@ -990,15 +1147,47 @@ public class Main {
                 adminPanel();
                 break;
 
-            case 4 :
+            case 4 :    //search
+                System.out.println("1)search products");
+                System.out.println("2)search users");
+                int ans1 = input.nextInt();
+                if(ans1 == 1) {
+                    System.out.println("<search by title>");
+                    System.out.println("Enter product name:");
+                    String name = input.next();
+                    ArrayList<Product> result = Service.search(name);
+                    for (Product product : result) {
+                        System.out.println(product.getName());
+                        System.out.println("price: " + product.getPrice());
+                        System.out.println("data: " + product.getAdditionalData());
+                        System.out.println("quantity: " + product.getQuantity());
+                        System.out.println("..............................................");
+                    }
+                    adminPanel();
+                }
+                    if(ans1 == 2){
+                        System.out.println("Enter a username:");
+                        String username = input.next();
+                        ArrayList<USER> result1 = Service.searchUser(username);
+                        for(USER user : result1){
+                            System.out.println(user.getUsername());
+                            System.out.println("password: " + user.getPassword());
+                            System.out.println("wallet: " + user.getWallet());
+                            System.out.println("phoneNumber: " + user.getPhoneNumber());
+                            System.out.println("email: " + user.getEmail());
+                            System.out.println("address: " + user.getAddress());
+                            System.out.println("..............................................");
+                        }
+                        adminPanel();
+                    }
                 break;
 
-            case 5 :
+            case 5 :     //viewUsers
                 Service.viewUsers();
                 adminPanel();
                 break;
 
-            case 6 :
+            case 6 :        //categories
                 for(Category category : Service.categoryList) {
                     System.out.println(category.getName());
                 }
@@ -1403,7 +1592,7 @@ public class Main {
         Service.addToProductsList(backpack1);
         Service.addToProductsList(backpack2);
 
-        USER me = new USER("m", "m", "sdfg", 1234, "dfg", 100000000);
+        USER me = new USER("m", "m", "sdfg", 1234, "dfg", 1000000000);
         Service.addUser(me);
 
         ADMIN A1 = new ADMIN("a1","111","aaa");

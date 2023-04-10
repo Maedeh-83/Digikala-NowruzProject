@@ -7,9 +7,7 @@ public class Product {
     private int cartNumber;
     private String additionalData;
     private SELLER seller;
-
     private int ID;
-
 
     public Product(int ID,String name, int price, int quantity, String additionalData, SELLER seller) {
         this.ID = ID;
@@ -18,26 +16,10 @@ public class Product {
         this.quantity = quantity;
         this.cartNumber = cartNumber;
         this.additionalData = additionalData;
-        seller = seller;
-        //this.seller = seller;
+        this.seller = seller;
        // this.seller.setCompanyName(seller);
     }
 
-    public Product(int ID, String name, int price, int quantity, String additionalData, String seller) {
-        this.ID = ID;
-        this.name = name;
-        this.price = price;
-        this.quantity = quantity;
-        this.cartNumber = cartNumber;
-        this.additionalData = additionalData;
-        seller = seller;
-        /*this.seller.setCompanyName(seller);
-        for(SELLER seller1 : Service.sellersList) {
-            if(seller1.getCompanyName().equals(seller)) {
-                this.seller = seller1;
-            }
-        }*/
-    }
 
     public void setName(String name) {
         this.name = name;

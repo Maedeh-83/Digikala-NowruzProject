@@ -44,12 +44,11 @@ public class Order {
     }
 
     public static void getSellers() {
+        System.out.println(" - sellers: ");
         for(SELLER seller : sellers){
-            System.out.println(" - sellers: " + seller + ", ");
+            System.out.println(seller.getCompanyName() + ", ");
         }
     }
-
-
     public static void getProducts() {
         for(Product product : products){
             System.out.println(" - products: " + product.getName()+ ", ");

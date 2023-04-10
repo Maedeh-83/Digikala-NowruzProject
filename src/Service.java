@@ -34,7 +34,7 @@ public class Service {
     public static List<ADMIN> getAdminsList() {
         return adminsList;
     }
-    public List<SELLER> getSellersList() {
+    public static List<SELLER> getSellersList() {
         return sellersList;
     }
 
@@ -67,7 +67,6 @@ public class Service {
             }
         }
     }
-
     public static void viewDetailsOfProduct(Product product) {
 
         System.out.println("--" + product.getID() + "--" + product.getName());
@@ -89,11 +88,9 @@ public class Service {
             System.out.println("name: " + product.getName() + " - price: " + product.getPrice() + " - details: " + product.getAdditionalData() + " - available:" + product.getQuantity());
         }
     }
-
     public static void removeProduct(Product product) {
         cart.remove(product);
     }
-
     public static void viewOrdersList() {
         for (Order order : ordersList) {
             System.out.println("date: " + order.getDate());
@@ -104,7 +101,6 @@ public class Service {
             System.out.println("................................................");
         }
     }
-
     public static void updateNumberOfProduct(Product product) {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the desired number of your product:");
@@ -118,7 +114,6 @@ public class Service {
             Main.userPanel();
         }
     }
-
     public static String uuid() {
         UUID id = UUID.randomUUID();
         String password = id.toString().substring(0,5);
@@ -151,7 +146,6 @@ public class Service {
         System.out.println("your account created succefully!");
         Main.userPanel();
     }
-
     public static void userLogin() {
         Scanner input = new Scanner(System.in);
         String mainUsername;
@@ -173,7 +167,6 @@ public class Service {
             }
         }
     }
-
     public static void adminLogin() {
         Scanner input = new Scanner(System.in);
         String username;
@@ -195,18 +188,40 @@ public class Service {
             }
         }
     }
-
-    public static void sellerLogin() {
+    public static void sellerLogin1() {
+        Scanner input = new Scanner(System.in);
+        String companyName;
+        String password;
+        System.out.println("<Seller Login>");
+        System.out.println(" ");
+        System.out.println("Enter your companyName:");
+        companyName = input.nextLine();
+        System.out.println("Enter your password:");
+        password = input.nextLine();
+        for (SELLER seller : sellersList) {
+            if (seller.getCompanyName().equals(companyName) && seller.getPassword().equals(password)) {
+                System.out.println("you logged in (:");
+                Main.sellerPanel();
+            }
+            else {
+                System.out.println("seller not found!");
+                Main.START();
+            }
+        }
+    }
+    /*public static void sellerLogin() {
         Scanner input = new Scanner(System.in);
         String companyName;
         String password;
         System.out.println("Enter your company Name:");
         companyName = input.nextLine();
         System.out.println("Enter your password:");
-        password = input.next();
+        password = input.nextLine();
         for (SELLER seller : sellersList) {
             if (seller.getCompanyName().equals(companyName) && seller.getPassword().equals(password)) {
-                if(seller.authorization == true){
+                System.out.println("you logged in (:");
+                Main.sellerPanel();
+               /* if(seller.authorization == true){
                     Main.sellerPanel();
                 }
                 if(seller.authorization == false){
@@ -216,10 +231,10 @@ public class Service {
             }
             else {
                 System.out.println("seller not found!");
+                Main.START();
             }
         }
-    }
-
+    } */
     public static void editPersonalInformation() {
         Scanner input = new Scanner(System.in);
         System.out.println("first, enter your current username and password...");
@@ -300,7 +315,6 @@ public class Service {
                 break;
         }
     }
-
     public static void creatAdminAccount() {            //just by another admin
         Scanner input = new Scanner(System.in);
         String username;
@@ -390,7 +404,7 @@ public class Service {
             buyer.setWallet(newWallet);
 
             totalProfit = totalProfit + (0.1 * totalPrice);
-
+            //افزوده شدن به کیف پول فروشنده
             for (Product product : cart) {
                 for(SELLER seller : sellersList) {
                     if(seller.getCompanyName().equals(product.getSeller().getCompanyName())) {
@@ -457,7 +471,6 @@ public class Service {
             }
         }
     }
-
     public static void addCategory(Category category){
         categoryList.add(category);
     }
@@ -466,6 +479,9 @@ public class Service {
     }
     public static void addAdmin(ADMIN admin){
         adminsList.add(admin);
+    }
+    public static void addSeller(SELLER seller){
+        sellersList.add(seller);
     }
     public static void addToProductsList(Product product){
         productsList.add(product);

@@ -22,7 +22,7 @@ public class Main {
     private static Category notrbookAndpaper = new Category("2-Notebook & Paper");
     private static Category backpack = new Category("3-backpack");
 
-    public static void START(){
+    public static void START() {
         Scanner input = new Scanner(System.in);
         System.out.println(".......................Digikala.......................");
         System.out.println(" ");
@@ -46,11 +46,13 @@ public class Main {
                 break;
 
             case 3 :
-                System.out.println("Have you allready Get authorization from an admin?");
+                Service.sellerLogin1();
+               /* System.out.println("Have you allready Get authorization from an admin?");
                 System.out.println("1-Yes     2-No");
                 int ans1 = input.nextInt();
                 if(ans1 == 1){ Service.sellerLogin(); }
                 if(ans1 == 2){ SELLER.getPermission(); }
+                */
                 break;
 
             default:
@@ -1404,9 +1406,37 @@ public class Main {
         int option = input.nextInt();
 
         switch (option) {
+            case 1 :    //profile
+                System.out.println("Enter your password:");
+                String password = input.next();
+                SELLER.showProfile(password);
+                System.out.println("..............................");
+                System.out.println("1-BACK");
+                int ans = input.nextInt();
+                if(ans == 1){
+                    System.out.println("..............................");
+                    sellerPanel();
+                }
+                break;
 
+            case 2 :    //View available products
+                SELLER.viewAvailableProducts();
+                sellerPanel();
+                break;
+
+            case 3 :    //add a New Product
+                SELLER.addaNewProduct();
+                sellerPanel();
+                break;
+
+            case 4 :     //get permission
+                SELLER.getPermission();
+                break;
+
+            case 5 :
+                START();
+                break;
         }
-
     }
 
     public static void main(String[] args) {
@@ -1433,6 +1463,70 @@ public class Main {
         //Category notrbookAndpaper = new Category("2-Notebook & Paper");
         //Category backpack = new Category("3-backpack");
 
+        SELLER Gostaresh = new SELLER("Gostaresh","Gostaresh", 0.0);
+        SELLER Sam_ram = new SELLER("Sam_ram","Sam_ram", 0.0);
+        SELLER Karzin_plus = new SELLER("Karzin_plus","Karzin_plus", 0.0);
+        SELLER Pardazeshgar = new SELLER("Pardazeshgar","Pardazeshgar", 0.0);
+        SELLER Avazhang = new SELLER("Avazhang","Avazhang", 0.0);
+        SELLER Pardis_store = new SELLER("Pardis_store","Pardis_store", 0.0);
+        SELLER Pershia = new SELLER("Pershia","Pershia", 0.0);
+        SELLER Kasra = new SELLER("Kasra","Kasra", 0.0);
+        SELLER Baycal = new SELLER("Baycal","Baycal", 0.0);
+        SELLER Ravin = new SELLER("Ravin","Ravin", 0.0);
+        SELLER Rayatak = new SELLER("Rayatak","Rayatak", 0.0);
+        SELLER Wrangler = new SELLER("Wrangler","Wrangler", 0.0);
+        SELLER Drop = new SELLER("Drop","Drop", 0.0);
+        SELLER FROGG_TOGGS = new SELLER("FROGG_TOGGS","FROGG_TOGGS", 0.0);
+        SELLER Stride_Rite360 = new SELLER("Stride_Rite360","Stride_Rite360", 0.0);
+        SELLER Scholastic_Inc = new SELLER("Scholastic_Inc","Scholastic_Inc", 0.0);
+        SELLER Ketabkala = new SELLER("Ketabkala","Ketabkala", 0.0);
+        SELLER Carhartt_Unisex = new SELLER("Carhartt_Unisex","Carhartt_Unisex", 0.0);
+        SELLER McCulloch_Store = new SELLER("McCulloch_Store","McCulloch_Store", 0.0);
+        SELLER VIZIO = new SELLER("VIZIO","VIZIO", 0.0);
+        SELLER Keurig = new SELLER("Keurig","Keurig", 0.0);
+        SELLER Aroma = new SELLER("Aroma","Aroma", 0.0);
+        SELLER Lucid = new SELLER("Lucid","Lucid", 0.0);
+        SELLER Acanva = new SELLER("Acanva","Acanva", 0.0);
+        SELLER stila = new SELLER("stila","stila", 0.0);
+        SELLER Maybelline = new SELLER("Maybelline","Maybelline", 0.0);
+        SELLER CeraVe = new SELLER("CeraVe","CeraVe", 0.0);
+        SELLER Vanicream = new SELLER("Vanicream","Vanicream", 0.0);
+        SELLER Anthony = new SELLER("Anthony","Anthony", 0.0);
+        SELLER Conair = new SELLER("Conair","Conair", 0.0);
+        SELLER Dickies = new SELLER("Dickies","Dickies", 0.0);
+
+        Service.addSeller(Dickies);
+        Service.addSeller(FROGG_TOGGS);
+        Service.addSeller(McCulloch_Store);
+        Service.addSeller(Drop);
+        Service.addSeller(Gostaresh);
+        Service.addSeller(Sam_ram);
+        Service.addSeller(Scholastic_Inc);
+        Service.addSeller(Stride_Rite360);
+        Service.addSeller(Vanicream);
+        Service.addSeller(Conair);
+        Service.addSeller(VIZIO);
+        Service.addSeller(Anthony);
+        Service.addSeller(Acanva);
+        Service.addSeller(Aroma);
+        Service.addSeller(Avazhang);
+        Service.addSeller(Lucid);
+        Service.addSeller(Keurig);
+        Service.addSeller(Kasra);
+        Service.addSeller(Karzin_plus);
+        Service.addSeller(Ketabkala);
+        Service.addSeller(Rayatak);
+        Service.addSeller(Ravin);
+        Service.addSeller(Pardazeshgar);
+        Service.addSeller(Wrangler);
+        Service.addSeller(Carhartt_Unisex);
+        Service.addSeller(CeraVe);
+        Service.addSeller(Maybelline);
+        Service.addSeller(Baycal);
+        Service.addSeller(Pershia);
+        Service.addSeller(Pardis_store);
+        Service.addSeller(stila);
+
         modAndCloths.addSubCategories(womenCloths);
         modAndCloths.addSubCategories(menCloths);
         modAndCloths.addSubCategories(kidCloths);
@@ -1456,102 +1550,111 @@ public class Main {
         Service.addCategory(homeAndKitchen);
         Service.addCategory(booksAndStationery);
 
-        Product cellPhone1 = new Product( 1,"Samsung Galaxy A53", 15800000, 1, "5G, Android 12, 6.46 inch, Ram 8, Memory 256G", "Gostaresh");
-        Product cellPhone2 = new Product(2,"Samsung Galaxy Z Flip3", 35000000, 13, "5G, Android 11, 6.7 inch, Ram 8, Memory 256G", "Sam ram");
-        Product cellPhone3 = new Product(3,"iPhone 13 CH", 45000000, 3, "5G, ios 15, 6.1 inch, Ram 4, Memory 128G", "Karzin plus");
-        Product cellPhone4 = new Product(4,"Xiaomi Poco X4 Pro", 12000000, 20, "5G, Android 11, 6.67 inch, Ram 6, Memory 128G", "Pardazeshgar");
+        Product cellPhone1 = new Product( 1,"Samsung Galaxy A53", 15800000, 1, "5G, Android 12, 6.46 inch, Ram 8, Memory 256G", Gostaresh);
+        Product cellPhone2 = new Product(2,"Samsung Galaxy Z Flip3", 35000000, 13, "5G, Android 11, 6.7 inch, Ram 8, Memory 256G", Sam_ram);
+        Product cellPhone3 = new Product(3,"iPhone 13 CH", 45000000, 3, "5G, ios 15, 6.1 inch, Ram 4, Memory 128G", Karzin_plus);
+        Product cellPhone4 = new Product(4,"Xiaomi Poco X4 Pro", 12000000, 20, "5G, Android 11, 6.67 inch, Ram 6, Memory 128G", Pardazeshgar);
+
+        Gostaresh.addAvailableProduct(cellPhone1);
+        Sam_ram.addAvailableProduct(cellPhone2);
+        Karzin_plus.addAvailableProduct(cellPhone3);
+        Pardazeshgar.addAvailableProduct(cellPhone4);
 
         cellPhones.addProduct(cellPhone1);
         cellPhones.addProduct(cellPhone2);
         cellPhones.addProduct(cellPhone3);
         cellPhones.addProduct(cellPhone4);
 
-        Product laptop1 = new Product(1,"Asus vivobook S14", 36000000, 7, "Ryzen 5, Ram 8, Memory 1T, 14 inch", "Avazhang");
-        Product laptop2 = new Product(2,"Asus ZenBook 14 UX435EG-B", 59000000, 2, "Core i5, Ram 8, Memory 512G, 14 inch", "Pardis store");
-        Product laptop3 = new Product(3,"Apple MacBook M2 LLA", 65500000, 4, "M2, Ram 8, Memory 256G", "Pershia");
+        Product laptop1 = new Product(1,"Asus vivobook S14", 36000000, 7, "Ryzen 5, Ram 8, Memory 1T, 14 inch", Avazhang);
+        Product laptop2 = new Product(2,"Asus ZenBook 14 UX435EG-B", 59000000, 2, "Core i5, Ram 8, Memory 512G, 14 inch", Pardis_store);
+        Product laptop3 = new Product(3,"Apple MacBook M2 LLA", 65500000, 4, "M2, Ram 8, Memory 256G", Pershia);
+
+        Avazhang.addAvailableProduct(laptop1);
+        Pardis_store.addAvailableProduct(laptop2);
+        Pershia.addAvailableProduct(laptop3);
 
         laptops.addProduct(laptop1);
         laptops.addProduct(laptop2);
         laptops.addProduct(laptop3);
 
-        Product smartWatch1 = new Product(1,"Samsung Galaxy Watch4", 6900000, 18, "Weight 30g, form:circular, 1.4 inch", "Kasra");
-        Product smartWatch2 = new Product(2,"Xiaomi Redmi Watch 2 Lite", 2400000, 12, "Weight 350g, form:rectangular, 1.7 inch", "Baycal");
+        Product smartWatch1 = new Product(1,"Samsung Galaxy Watch4", 6900000, 18, "Weight 30g, form:circular, 1.4 inch", Kasra);
+        Product smartWatch2 = new Product(2,"Xiaomi Redmi Watch 2 Lite", 2400000, 12, "Weight 350g, form:rectangular, 1.7 inch", Baycal);
 
         smartWatches.addProduct(smartWatch1);
         smartWatches.addProduct(smartWatch2);
 
-        Product headphone1 = new Product(1,"QCY T13 TWS", 700000, 6, "Weight 20g, battery 8h, bluetooth 5.1, Access diameter: 10m", "Ravin");
-        Product headphone2 = new Product(2,"Leitu LT-13", 995000, 2, "Weight 32g, battery 4h, bluetooth 5.1, Access diameter: 10m", "Ravin");
-        Product headphone3 = new Product(3,"Samsung Galaxy Buds2 Pro", 6800000, 11, "Weight 27g, battery 18h, bluetooth 5.1, Access diameter: 15m", "Rayatak");
+        Product headphone1 = new Product(1,"QCY T13 TWS", 700000, 6, "Weight 20g, battery 8h, bluetooth 5.1, Access diameter: 10m", Ravin);
+        Product headphone2 = new Product(2,"Leitu LT-13", 995000, 2, "Weight 32g, battery 4h, bluetooth 5.1, Access diameter: 10m", Ravin);
+        Product headphone3 = new Product(3,"Samsung Galaxy Buds2 Pro", 6800000, 11, "Weight 27g, battery 18h, bluetooth 5.1, Access diameter: 15m", Rayatak);
 
         headphones.addProduct(headphone1);
         headphones.addProduct(headphone2);
         headphones.addProduct(headphone3);
 
-        Product womenCloth1 = new Product(1,"Women's Stretch Denim Jacket", 1800000, 33, "99% Cotton, Button closure, color: blue", "Wrangler");
-        Product womenCloth2 = new Product(2,"Women's Noa Trench Coat", 3000000, 17, "64% Cotton-36% Nylon, Cotton lining,Pull On closure,Machine Wash", "Drop");
-        Product womenCloth3 = new Product(3,"Women's French Terry Fleece Crewneck Sweatshirt", 860000, 23, "60% Cotton-40% Polyester, No Closure closure, Machine Wash, Close-but-comfortable fit, Soft and comfortable French terry fleece,Crew neckline", "Wrangler");
+        Product womenCloth1 = new Product(1,"Women's Stretch Denim Jacket", 1800000, 33, "99% Cotton, Button closure, color: blue", Wrangler);
+        Product womenCloth2 = new Product(2,"Women's Noa Trench Coat", 3000000, 17, "64% Cotton-36% Nylon, Cotton lining,Pull On closure,Machine Wash", Drop);
+        Product womenCloth3 = new Product(3,"Women's French Terry Fleece Crewneck Sweatshirt", 860000, 23, "60% Cotton-40% Polyester, No Closure closure, Machine Wash, Close-but-comfortable fit, Soft and comfortable French terry fleece,Crew neckline", Wrangler);
 
         womenCloths.addProduct(womenCloth1);
         womenCloths.addProduct(womenCloth2);
         womenCloths.addProduct(womenCloth3);
 
-        Product menCloth1 = new Product(1,"Men's All Purpose Socks", 85000, 68, "79% Cotton-19% Polyester-1% Nylon-1% Spandex, Machine Wash, Soft and breathable cotton, Comfortable full cushion foot Durable, reinforced heel and toe, No-slip", "Dickies");
-        Product menCloth2 = new Product(2,"Men's Classic All-Sport Waterproof Breathable Rain Suit",2000000 , 8, "100% Polypropylene, Pull-On closure, Machine Wash, WATERPROOF", "FROGG TOGGS ");
+        Product menCloth1 = new Product(1,"Men's All Purpose Socks", 85000, 68, "79% Cotton-19% Polyester-1% Nylon-1% Spandex, Machine Wash, Soft and breathable cotton, Comfortable full cushion foot Durable, reinforced heel and toe, No-slip", Dickies);
+        Product menCloth2 = new Product(2,"Men's Classic All-Sport Waterproof Breathable Rain Suit",2000000 , 8, "100% Polypropylene, Pull-On closure, Machine Wash, WATERPROOF", FROGG_TOGGS);
 
         menCloths.addProduct(menCloth1);
         menCloths.addProduct(menCloth2);
 
-        Product kidCloth1 = new Product(1,"Unisex-Child Taye 2.0 First Walker Shoe", 1200000, 14, "100% Synthetic, Man Made sole, Shaft measures approximately not_applicable from arch", "Stride Rite 360 ");
+        Product kidCloth1 = new Product(1,"Unisex-Child Taye 2.0 First Walker Shoe", 1200000, 14, "100% Synthetic, Man Made sole, Shaft measures approximately not_applicable from arch", Stride_Rite360);
 
         kidCloths.addProduct(kidCloth1);
 
-        Product book1 = new Product(1,"Harry Potter Paperback Box Set (Books 1-7)", 2500000, 100, "by J.K.Rowling, Reading age: 9+ years", "Scholastic Inc");
-        Product book2 = new Product(2,"The Secret", 95000, 45, "by Rhonda Byrne, 216 pagesو ", "Ketabkala");
-        Product book3 = new Product(3,"Sejong Korean Conversation 1", 380000, 25, "14 units with various activities: Let's Practice, Let's Talk, Let's Listen and Speak", "Ketabkala");
+        Product book1 = new Product(1,"Harry Potter Paperback Box Set (Books 1-7)", 2500000, 100, "by J.K.Rowling, Reading age: 9+ years", Scholastic_Inc);
+        Product book2 = new Product(2,"The Secret", 95000, 45, "by Rhonda Byrne, 216 pagesو ", Ketabkala);
+        Product book3 = new Product(3,"Sejong Korean Conversation 1", 380000, 25, "14 units with various activities: Let's Practice, Let's Talk, Let's Listen and Speak", Ketabkala);
 
         book.addProduct(book1);
         book.addProduct(book2);
         book.addProduct(book3);
 
-        Product backpack1 = new Product(1,"Adult Backpack with 15-Inch Laptop Sleeve", 900000,10 ,"Comfort shoulder straps, color:black" , "Carhartt Unisex");
-        Product backpack2 = new Product(2,"Under Armour Hustle Sport Backpack", 1200000, 8, "100% Polyester, color:gray, Synthetic lining, Zipper closure", "Carhartt Unisex");
+        Product backpack1 = new Product(1,"Adult Backpack with 15-Inch Laptop Sleeve", 900000,10 ,"Comfort shoulder straps, color:black" , Carhartt_Unisex);
+        Product backpack2 = new Product(2,"Under Armour Hustle Sport Backpack", 1200000, 8, "100% Polyester, color:gray, Synthetic lining, Zipper closure", Carhartt_Unisex);
 
         backpack.addProduct(backpack1);
         backpack.addProduct(backpack2);
 
-        Product Electric1 = new Product(1,"Deluxe Canister Steam Cleaner with 23 Accessories", 5000000, 4, "Chemical-Free Pressurized Cleaning for Most Floors, Counters, Appliances, Windows, Autos, and More, 1-(Pack), Black", "McCulloch Store");
-        Product Electric2 = new Product(2,"Smart TV with Apple AirPlay and Chromecast Built-in, 2022 Model", 7500000, 6, "40-inch D-Series Full HD 1080p", "VIZIO");
+        Product Electric1 = new Product(1,"Deluxe Canister Steam Cleaner with 23 Accessories", 5000000, 4, "Chemical-Free Pressurized Cleaning for Most Floors, Counters, Appliances, Windows, Autos, and More, 1-(Pack), Black", McCulloch_Store);
+        Product Electric2 = new Product(2,"Smart TV with Apple AirPlay and Chromecast Built-in, 2022 Model", 7500000, 6, "40-inch D-Series Full HD 1080p", VIZIO);
 
         electricHouseholdAppliances.addProduct(Electric1);
         electricHouseholdAppliances.addProduct(Electric2);
 
-        Product kitchen1 = new Product(1,"Digital Cool-Touch Rice Grain Cooker and Food Steamer", 1100000, 5," Stainless, Silver, 4-Cup (Uncooked) / 8-Cup (Cooked)", "Aroma");
-        Product kitchen2 = new Product(2,"Single Serve K-Cup Pod Coffee Maker", 3000000, 6, "", "Keurig");
+        Product kitchen1 = new Product(1,"Digital Cool-Touch Rice Grain Cooker and Food Steamer", 1100000, 5," Stainless, Silver, 4-Cup (Uncooked) / 8-Cup (Cooked)", Aroma);
+        Product kitchen2 = new Product(2,"Single Serve K-Cup Pod Coffee Maker", 3000000, 6, "", Keurig);
 
         kitchenUtensils.addProduct(kitchen1);
         kitchenUtensils.addProduct(kitchen2);
 
-        Product bedding1 = new Product(1,"Lucid 3 Inch Mattress Topper Queen",200000 , 18, "Gel Infused Memory Foam – Memory Foam Mattress Topper Queen – Ventilated Design – CertiPur Certified", "Lucid");
-        Product bedding2 = new Product(2,"Cooling Bed Pillows for Sleeping", 550000, 6, "Quality 3D Microfiber Filling with Breathable Cover for Side Back and Stomach Sleepers, Reduces Neck Pain,(Pack of 2), Black", "Acanva");
+        Product bedding1 = new Product(1,"Lucid 3 Inch Mattress Topper Queen",200000 , 18, "Gel Infused Memory Foam – Memory Foam Mattress Topper Queen – Ventilated Design – CertiPur Certified", Lucid);
+        Product bedding2 = new Product(2,"Cooling Bed Pillows for Sleeping", 550000, 6, "Quality 3D Microfiber Filling with Breathable Cover for Side Back and Stomach Sleepers, Reduces Neck Pain,(Pack of 2), Black", Acanva);
 
         bedding.addProduct(bedding1);
         bedding.addProduct(bedding2);
 
-        Product makeup1 = new Product(1,"Waterproof Liquid Eye Liner",310000 ,17 , "Intense Black, The fine marker-like tip offers precise application for everyone from novices to pros.", "stila");
-        Product makeup2 = new Product(2,"Washable Mascara Volumizing",  450000 ,22, "Lengthening, Curling, Multiplying,Blackest Black", "Maybelline");
+        Product makeup1 = new Product(1,"Waterproof Liquid Eye Liner",310000 ,17 , "Intense Black, The fine marker-like tip offers precise application for everyone from novices to pros.", stila);
+        Product makeup2 = new Product(2,"Washable Mascara Volumizing",  450000 ,22, "Lengthening, Curling, Multiplying,Blackest Black", Maybelline);
 
         makeUp.addProduct(makeup1);
         makeUp.addProduct(makeup2);
 
-        Product skincare1 = new Product(1,"Tinted Sunscreen",620000 ,11 , " with SPF 30 | Hydrating Mineral Sunscreen With Zinc Oxide & Titanium Dioxide | Sheer Tint for Healthy Glow | 1.7 Fluid Ounce", "CeraVe");
-        Product skincare2 = new Product(2,"Gentle Facial Cleanser with Pump Dispenser",570000 ,34 ,"8 fl oz - Formulated Without Common Irritants for Those with Sensitive Skin", "Vanicream");
+        Product skincare1 = new Product(1,"Tinted Sunscreen",620000 ,11 , " with SPF 30 | Hydrating Mineral Sunscreen With Zinc Oxide & Titanium Dioxide | Sheer Tint for Healthy Glow | 1.7 Fluid Ounce", CeraVe);
+        Product skincare2 = new Product(2,"Gentle Facial Cleanser with Pump Dispenser",570000 ,34 ,"8 fl oz - Formulated Without Common Irritants for Those with Sensitive Skin", Vanicream);
 
         skinCare.addProduct(skincare1);
         skinCare.addProduct(skincare2);
 
-        Product hairCare1 = new Product(1,"Leave-In Conditioner Spray & Detangler",  390000,27, "Anti-Frizz Deep Conditioner For Split Ends & Breakage - Vitamin E, Caffeine & Ginseng for Curly, Dry & Damaged Hair", "Anthony");
-        Product haircare2 = new Product(2,"Hair Dryer 1875W Mid-Size",2800000 ,9, "color:White, Lightweight, Power Source:Corded Electric", "Conair");
+        Product hairCare1 = new Product(1,"Leave-In Conditioner Spray & Detangler",  390000,27, "Anti-Frizz Deep Conditioner For Split Ends & Breakage - Vitamin E, Caffeine & Ginseng for Curly, Dry & Damaged Hair", Anthony);
+        Product haircare2 = new Product(2,"Hair Dryer 1875W Mid-Size",2800000 ,9, "color:White, Lightweight, Power Source:Corded Electric", Conair);
 
         hairCare.addProduct(hairCare1);
         hairCare.addProduct(haircare2);
@@ -1597,6 +1700,10 @@ public class Main {
 
         ADMIN A1 = new ADMIN("a1","111","aaa");
         Service.addAdmin(A1);
+
+        SELLER q = new SELLER("q", "q", 0.0);
+        Service.addSeller(q);
+
 
         START();
 

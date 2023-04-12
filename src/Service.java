@@ -198,15 +198,17 @@ public class Service {
         companyName = input.nextLine();
         System.out.println("Enter your password:");
         password = input.nextLine();
+        boolean flag = false;
         for (SELLER seller : sellersList) {
             if (seller.getCompanyName().equals(companyName) && seller.getPassword().equals(password)) {
+                flag = true;
                 System.out.println("you logged in (:");
                 Main.sellerPanel();
             }
-            else {
-                System.out.println("seller not found!");
-                Main.START();
-            }
+        }
+        if (!flag){
+            System.out.println("seller not found!");
+            Main.START();
         }
     }
     /*public static void sellerLogin() {
@@ -235,6 +237,37 @@ public class Service {
             }
         }
     } */
+    public static void addaNewProduct() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("enter your password:");
+        String password = input.nextLine();
+        boolean flag1 = false;
+        for (SELLER seller : sellersList) {
+            if (seller.getPassword().equals(password)) {
+                flag1 = true;
+                String CN = seller.getCompanyName();
+                double W = seller.getWallet();
+                SELLER seller1 = new SELLER(CN, password, W);
+                System.out.println("enter the new product name:");
+                String name = input.nextLine();
+                System.out.println("enter the new product price:");
+                int price = input.nextInt();
+                System.out.println("enter additional data:");
+                String additionalData = input.nextLine();
+                System.out.println("enter the product quantity:");
+                int quantity = input.nextInt();
+                System.out.println("enter the product id:");
+                int id = input.nextInt();
+                Product newProduct = new Product(id, name, price, quantity, additionalData, seller1);
+                SELLER.addAvailableProduct(newProduct);
+                System.out.println("Product added successfully...");
+            }
+            if (!flag1){
+                System.out.println("seller not found!");
+                Main.sellerPanel();
+            }
+        }
+    }
     public static void editPersonalInformation() {
         Scanner input = new Scanner(System.in);
         System.out.println("first, enter your current username and password...");
@@ -361,7 +394,6 @@ public class Service {
     public static void logout() {
         Main.START();
     }
-
     public static void orderSubmission(List<Product> cart) {
         // ابتدا چک کردن موجودی کیف پول کاربر
         Scanner input = new Scanner(System.in);
